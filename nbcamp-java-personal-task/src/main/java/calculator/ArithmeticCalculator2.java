@@ -1,5 +1,5 @@
 package calculator;
 
 public interface ArithmeticCalculator2 {
-    public int operate(int num1, int num2) throws BadInputException;
+    public double operate(double num1, double num2) throws BadInputException;
 }

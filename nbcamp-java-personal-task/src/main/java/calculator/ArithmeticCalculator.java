@@ -1,13 +1,11 @@
 package calculator;
 
-import java.util.Scanner;
-
 public class ArithmeticCalculator extends Calculator {
 
     ArithmeticCalculator2 arithmeticCalculator2;
 
-    public int calculate(int num1, OperatorType operator, int num2) throws BadInputException{
-        int result = 0;
+    public <T> double calculate(T num1, OperatorType operator, T num2) throws BadInputException{
+        double result = 0;
 
         switch (operator) {
             case ADD -> arithmeticCalculator2 = new AddOperator();
@@ -16,7 +14,7 @@ public class ArithmeticCalculator extends Calculator {
             case DIVIDE -> arithmeticCalculator2 = new DivideOperator();
             case MOD -> arithmeticCalculator2 = new ModOperator();
         }
-        result = arithmeticCalculator2.operate(num1, num2);
+        result = arithmeticCalculator2.operate((Double) num1, (Double) num2);
 
         // Storing answer using JCF
         queue.add(result);
@@ -31,7 +29,7 @@ public class ArithmeticCalculator extends Calculator {
     // Print all the operation answers.
     public void inquiryResults() {
         System.out.print("Stored operation answers : ");
-        for (Integer i : queue) {
+        for (double i : queue) {
             System.out.print(i + " ");
         }
         System.out.println();

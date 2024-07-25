@@ -17,12 +17,13 @@ public class App {
 
             if(input == 1) {    // operation
                 System.out.print("Enter your first number: ");
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
                 System.out.print("Enter operator: ");
                 char operator = sc.next().charAt(0);
                 System.out.print("Enter your second number: ");
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
 
+                // Using Enum
                 HashMap<Character, OperatorType> operatorMap = new HashMap<Character, OperatorType>();
                 operatorMap.put('+', OperatorType.ADD);
                 operatorMap.put('-', OperatorType.SUBTRACT);
@@ -31,14 +32,14 @@ public class App {
                 operatorMap.put('%', OperatorType.MOD);
 
                 try{
-                    int result = arithmeticCalculator.calculate(num1, operatorMap.get(operator), num2);
+                    double result = arithmeticCalculator.calculate(num1, operatorMap.get(operator), num2);
                     System.out.println(result);
                 } catch (BadInputException e) {
                     System.out.println(e.getMessage());
                 }
 
                 // Using getter, setter method.
-                Queue<Integer> q = calculator.getQueue();
+                Queue<Double> q = calculator.getQueue();
                 calculator.setQueue(q);
 
                 // Using removeResult method.

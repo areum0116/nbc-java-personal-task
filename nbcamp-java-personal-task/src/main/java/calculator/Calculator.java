@@ -3,7 +3,7 @@ package calculator;
 import java.util.*;
 
 public class Calculator {
-    protected Queue<Integer> queue = new LinkedList<>();  // Store the answer of the operations using JCF.
+    protected Queue<Double> queue = new LinkedList<>();  // Store the answer of the operations using JCF.
     static final double PI = 3.14;
     // static -> can use without making an object.
     // final -> value that doesn't change.
@@ -11,11 +11,11 @@ public class Calculator {
     protected ArrayList<Double> circleList = new ArrayList<>();   // Store the answer of the circle's area.
 
     // queue getter
-    public Queue<Integer> getQueue() {
+    public Queue<Double> getQueue() {
         return queue;
     }
     // queue setter
-    public void setQueue(Queue<Integer> queue) {
+    public void setQueue(Queue<Double> queue) {
         this.queue = queue;
     }
     // list getter
