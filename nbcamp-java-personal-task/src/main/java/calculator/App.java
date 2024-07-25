@@ -32,6 +32,10 @@ public class App {
             System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
             if(sc.next().equals("remove")) calculator.removeResult();
 
+            // Using inquiryResults method.
+            System.out.print("Enter 'inquiry' to see all the answers : ");
+            if(sc.next().equals("inquiry")) calculator.inquiryResults();
+
             System.out.print("continue? (Enter 'exit' to exit) : ");
             if(sc.next().equals("exit")) break;
         }

@@ -33,18 +33,18 @@ public class Calculator {
         // Storing answer using JCF
         queue.add(result);
 
-        System.out.print("Enter 'inquiry' to see all the answers : ");
-        if(sc.next().equals("inquiry")) {
-            System.out.print("answer : ");
-            for (Integer i : queue) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
         return result;
     }
 
     public void removeResult() {
         queue.poll();
+    }
+
+    public void inquiryResults() {
+        System.out.print("answer : ");
+        for (Integer i : queue) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 }
