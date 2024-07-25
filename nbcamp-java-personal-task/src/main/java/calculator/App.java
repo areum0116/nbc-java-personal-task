@@ -24,6 +24,10 @@ public class App {
                 System.out.println(e.getMessage());
             }
 
+            // Using getter, setter method.
+            Queue<Integer> q = calculator.getQueue();
+            calculator.setQueue(q);
+
             System.out.print("continue? (Enter 'exit' to exit) : ");
             if(sc.next().equals("exit")) break;
         }

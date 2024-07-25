@@ -5,6 +5,16 @@ import java.util.*;
 public class Calculator {
     private Queue<Integer> queue = new LinkedList<>();  // Store the answer of the operations using JCF.
 
+    // getter
+    public Queue<Integer> getQueue() {
+        return queue;
+    }
+
+    // setter
+    public void setQueue(Queue<Integer> queue) {
+        this.queue = queue;
+    }
+
     public int calculate(int num1, char operator, int num2) throws BadInputException{
 
         Scanner sc = new Scanner(System.in);
