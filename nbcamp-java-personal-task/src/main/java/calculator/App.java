@@ -28,6 +28,10 @@ public class App {
             Queue<Integer> q = calculator.getQueue();
             calculator.setQueue(q);
 
+            // Using removeResult method.
+            System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
+            if(sc.next().equals("remove")) calculator.removeResult();
+
             System.out.print("continue? (Enter 'exit' to exit) : ");
             if(sc.next().equals("exit")) break;
         }

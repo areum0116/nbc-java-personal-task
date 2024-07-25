@@ -32,8 +32,6 @@ public class Calculator {
 
         // Storing answer using JCF
         queue.add(result);
-        System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
-        if(sc.next().equals("remove")) queue.poll();
 
         System.out.print("Enter 'inquiry' to see all the answers : ");
         if(sc.next().equals("inquiry")) {
@@ -43,7 +41,10 @@ public class Calculator {
             }
             System.out.println();
         }
-
         return result;
+    }
+
+    public void removeResult() {
+        queue.poll();
     }
 }
