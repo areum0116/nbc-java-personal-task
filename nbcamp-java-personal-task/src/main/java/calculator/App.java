@@ -28,8 +28,18 @@ public class App {
                 }
             }
             System.out.println("result : " + result);
-            arr[index++] = result;
-            
+            if(index == 10) {
+                int[] tmp = arr.clone();
+                for (int i = 1; i < 10; i++) {
+                    arr[i-1] = tmp[i];
+                }
+                arr[9] = result;
+            }
+            else
+                arr[index++] = result;
+
+            System.out.println(Arrays.toString(arr));
+
             System.out.print("continue? (Enter exit to exit) : ");
             if(sc.next().equals("exit")) break;
         }
