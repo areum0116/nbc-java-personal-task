@@ -23,8 +23,15 @@ public class App {
                 System.out.print("Enter your second number: ");
                 int num2 = sc.nextInt();
 
+                HashMap<Character, OperatorType> operatorMap = new HashMap<Character, OperatorType>();
+                operatorMap.put('+', OperatorType.ADD);
+                operatorMap.put('-', OperatorType.SUBTRACT);
+                operatorMap.put('*', OperatorType.MULTIPLY);
+                operatorMap.put('/', OperatorType.DIVIDE);
+                operatorMap.put('%', OperatorType.MOD);
+
                 try{
-                    int result = arithmeticCalculator.calculate(num1, operator, num2);
+                    int result = arithmeticCalculator.calculate(num1, operatorMap.get(operator), num2);
                     System.out.println(result);
                 } catch (BadInputException e) {
                     System.out.println(e.getMessage());
