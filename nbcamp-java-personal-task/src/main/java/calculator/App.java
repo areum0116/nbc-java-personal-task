@@ -10,31 +10,43 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter your first number: ");
-            int num1 = sc.nextInt();
-            System.out.print("Enter operator: ");
-            char operator = sc.next().charAt(0);
-            System.out.print("Enter your second number: ");
-            int num2 = sc.nextInt();
+            System.out.println("Enter whether you want to 1.Do the operation or, 2.Get the area of the circle.");
+            int input = sc.nextInt();
 
-            try{
-                int result = calculator.calculate(num1, operator, num2);
-                System.out.println(result);
-            } catch (BadInputException e) {
-                System.out.println(e.getMessage());
+            if(input == 1) {    // operation
+                System.out.print("Enter your first number: ");
+                int num1 = sc.nextInt();
+                System.out.print("Enter operator: ");
+                char operator = sc.next().charAt(0);
+                System.out.print("Enter your second number: ");
+                int num2 = sc.nextInt();
+
+                try{
+                    int result = calculator.calculate(num1, operator, num2);
+                    System.out.println(result);
+                } catch (BadInputException e) {
+                    System.out.println(e.getMessage());
+                }
+
+                // Using getter, setter method.
+                Queue<Integer> q = calculator.getQueue();
+                calculator.setQueue(q);
+
+                // Using removeResult method.
+                System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
+                if(sc.next().equals("remove")) calculator.removeResult();
+
+                // Using inquiryResults method.
+                System.out.print("Enter 'inquiry' to see all the answers : ");
+                if(sc.next().equals("inquiry")) calculator.inquiryResults();
             }
-
-            // Using getter, setter method.
-            Queue<Integer> q = calculator.getQueue();
-            calculator.setQueue(q);
-
-            // Using removeResult method.
-            System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
-            if(sc.next().equals("remove")) calculator.removeResult();
-
-            // Using inquiryResults method.
-            System.out.print("Enter 'inquiry' to see all the answers : ");
-            if(sc.next().equals("inquiry")) calculator.inquiryResults();
+            else if(input == 2) {   // area of the circle
+                System.out.print("Enter the radius : ");
+                int r = sc.nextInt();
+                double area = calculator.calculateCircleArea(r);
+                System.out.println("Area of the circle : " + area);
+                calculator.inquiryCircleResults();
+            }
 
             System.out.print("continue? (Enter 'exit' to exit) : ");
             if(sc.next().equals("exit")) break;
