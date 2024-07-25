@@ -4,6 +4,8 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) {
+        int[] arr = new int[10];    // Store the answer of the operations.
+        int index = 0;      // Store array's last index
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -26,6 +28,8 @@ public class App {
                 }
             }
             System.out.println("result : " + result);
+            arr[index++] = result;
+            
             System.out.print("continue? (Enter exit to exit) : ");
             if(sc.next().equals("exit")) break;
         }
