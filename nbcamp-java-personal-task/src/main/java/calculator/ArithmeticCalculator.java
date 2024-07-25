@@ -4,18 +4,27 @@ import java.util.Scanner;
 
 public class ArithmeticCalculator extends Calculator {
 
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
+
+    public ArithmeticCalculator() {
+        super();
+        addOperator = new AddOperator();
+        subtractOperator = new SubtractOperator();
+        multiplyOperator = new MultiplyOperator();
+        divideOperator = new DivideOperator();
+    }
+
     public int calculate(int num1, char operator, int num2) throws BadInputException{
-        Scanner sc = new Scanner(System.in);
         int result = 0;
 
         switch (operator) {
-            case '+' -> result = num1 + num2;
-            case '-' -> result = num1 - num2;
-            case '*' -> result = num1 * num2;
-            case '/' -> {
-                if (num2 == 0) throw new BadInputException("0 cannot be used as a second parameter in division");
-                else result = num1 / num2;
-            }
+            case '+' -> result = addOperator.operate(num1, num2);
+            case '-' -> result = subtractOperator.operate(num1, num2);
+            case '*' -> result = multiplyOperator.operate(num1, num2);
+            case '/' -> result = divideOperator.operate(num1, num2);
         }
         // Storing answer using JCF
         queue.add(result);
