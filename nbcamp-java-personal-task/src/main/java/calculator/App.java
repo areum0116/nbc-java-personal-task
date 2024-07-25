@@ -4,8 +4,11 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        int[] arr = new int[10];    // Store the answer of the operations.
+        int[] arr = new int[10];    // Store the answer of the operations using array.
         int index = 0;      // Store array's last index
+
+        Queue<Integer> queue = new LinkedList<>();  // Store the answer of the operations using JCF.
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -28,6 +31,8 @@ public class App {
                 }
             }
             System.out.println("result : " + result);
+
+            // Storing answer using array
             if(index == 10) {
                 int[] tmp = arr.clone();
                 for (int i = 1; i < 10; i++) {
@@ -38,9 +43,12 @@ public class App {
             else
                 arr[index++] = result;
 
-            System.out.println(Arrays.toString(arr));
+            // Storing answer using JCF
+            queue.add(result);
+            System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
+            if(sc.next().equals("remove")) queue.poll();
 
-            System.out.print("continue? (Enter exit to exit) : ");
+            System.out.print("continue? (Enter 'exit' to exit) : ");
             if(sc.next().equals("exit")) break;
         }
     }
