@@ -15,6 +15,11 @@ public class Calculator {
         this.queue = queue;
     }
 
+    // constructor
+    public Calculator() {
+        queue = new LinkedList<>();
+    }
+
     public int calculate(int num1, char operator, int num2) throws BadInputException{
 
         Scanner sc = new Scanner(System.in);
