@@ -4,28 +4,20 @@ import java.util.Scanner;
 
 public class ArithmeticCalculator extends Calculator {
 
-    AddOperator addOperator;
-    SubtractOperator subtractOperator;
-    MultiplyOperator multiplyOperator;
-    DivideOperator divideOperator;
-
-    public ArithmeticCalculator() {
-        super();
-        addOperator = new AddOperator();
-        subtractOperator = new SubtractOperator();
-        multiplyOperator = new MultiplyOperator();
-        divideOperator = new DivideOperator();
-    }
+    ArithmeticCalculator2 arithmeticCalculator2;
 
     public int calculate(int num1, char operator, int num2) throws BadInputException{
         int result = 0;
 
         switch (operator) {
-            case '+' -> result = addOperator.operate(num1, num2);
-            case '-' -> result = subtractOperator.operate(num1, num2);
-            case '*' -> result = multiplyOperator.operate(num1, num2);
-            case '/' -> result = divideOperator.operate(num1, num2);
+            case '+' -> arithmeticCalculator2 = new AddOperator();
+            case '-' -> arithmeticCalculator2 = new SubtractOperator();
+            case '*' -> arithmeticCalculator2 = new MultiplyOperator();
+            case '/' -> arithmeticCalculator2 = new DivideOperator();
+            case '%' -> arithmeticCalculator2 = new ModOperator();
         }
+        result = arithmeticCalculator2.operate(num1, num2);
+
         // Storing answer using JCF
         queue.add(result);
         return result;
