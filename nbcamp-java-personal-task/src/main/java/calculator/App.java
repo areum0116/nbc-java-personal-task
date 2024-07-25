@@ -6,6 +6,8 @@ public class App {
     public static void main(String[] args) {
 
         Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
 
         Scanner sc = new Scanner(System.in);
 
@@ -22,7 +24,7 @@ public class App {
                 int num2 = sc.nextInt();
 
                 try{
-                    int result = calculator.calculate(num1, operator, num2);
+                    int result = arithmeticCalculator.calculate(num1, operator, num2);
                     System.out.println(result);
                 } catch (BadInputException e) {
                     System.out.println(e.getMessage());
@@ -34,18 +36,18 @@ public class App {
 
                 // Using removeResult method.
                 System.out.print("Will you remove the first element? (Enter 'remove' to do so) : ");
-                if(sc.next().equals("remove")) calculator.removeResult();
+                if(sc.next().equals("remove")) arithmeticCalculator.removeResult();
 
                 // Using inquiryResults method.
                 System.out.print("Enter 'inquiry' to see all the answers : ");
-                if(sc.next().equals("inquiry")) calculator.inquiryResults();
+                if(sc.next().equals("inquiry")) arithmeticCalculator.inquiryResults();
             }
             else if(input == 2) {   // area of the circle
                 System.out.print("Enter the radius : ");
                 int r = sc.nextInt();
-                double area = calculator.calculateCircleArea(r);
+                double area = circleCalculator.calculateCircleArea(r);
                 System.out.println("Area of the circle : " + area);
-                calculator.inquiryCircleResults();
+                circleCalculator.inquiryCircleResults();
             }
 
             System.out.print("continue? (Enter 'exit' to exit) : ");
