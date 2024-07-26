@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.stream.*;
+
 public class ArithmeticCalculator extends Calculator {
 
     ArithmeticCalculator2 arithmeticCalculator2;
@@ -33,5 +35,10 @@ public class ArithmeticCalculator extends Calculator {
             System.out.print(i + " ");
         }
         System.out.println();
+    }
+
+    // Print answers bigger than an input number
+    public void printBiggerAnswers(int n) {
+        queue.stream().filter(i -> i > n).forEach(System.out::println);
     }
 }

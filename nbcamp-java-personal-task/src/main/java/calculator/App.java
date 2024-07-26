@@ -49,6 +49,10 @@ public class App {
                 // Using inquiryResults method.
                 System.out.print("Enter 'inquiry' to see all the answers : ");
                 if(sc.next().equals("inquiry")) arithmeticCalculator.inquiryResults();
+
+                // Stream / lambda method
+                System.out.print("Shows bigger answers than this number : ");
+                arithmeticCalculator.printBiggerAnswers(sc.nextInt());
             }
             else if(input == 2) {   // area of the circle
                 System.out.print("Enter the radius : ");
